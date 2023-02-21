@@ -1,0 +1,44 @@
+<html style='background-color: black'>
+  <div id="my_bouncing_box" style= "background-color: blue; border-radius: 3px; position: absolute; left: 0px; top: 0px; min-width: 100px; min-height: 100px; text-align: center; font-weight: bold; color: #999;" >Not loaded</div>
+  <script type="text/javascript">
+
+    my_box = document.getElementById("my_bouncing_box");
+    
+    my_box.innerHTML = "Sammy";
+
+    win_width = window.innerWidth;
+    win_height = window.innerHeight;
+    
+    // box moving velocity
+    
+    xposition = 10;
+    yposition = 10;
+    
+    xspeed = 10;
+    yspeed = 10;
+    
+    count = 150;
+    
+    function diagonal(){
+    
+        my_box.style.left = xposition + 'px';
+        my_box.style.top = yposition + 'px';
+        
+        if (xposition >= win_width || xposition <= 0){
+          xspeed = -xspeed;
+        }
+        if (yposition >= win_height || yposition <= 0){
+          yspeed = -yspeed;
+        }
+        
+        xposition += xspeed;
+        yposition += yspeed;
+        
+        count--;
+    }
+    
+    setInterval(diagonal, 100)
+    
+    
+  </script>
+</html>
